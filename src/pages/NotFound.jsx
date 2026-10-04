@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom'
 import '../styles/not-found.css'
-import CustomCursor from '../components/CustomCursor'
 
 export default function NotFound() {
   return (
     <div className="nf-page">
-      <CustomCursor />
-
       <div className="nf-static" aria-hidden="true">
         <div className="nf-static-a" />
         <div className="nf-static-b" />

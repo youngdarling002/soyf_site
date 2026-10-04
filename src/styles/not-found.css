@@ -10,7 +10,6 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  cursor: none;
   background: #000;
 }
 
@@ -236,10 +235,3 @@
   transform: translateX(-5px) rotate(-20deg);
 }
 
-/* ─────────────────────────────────────────
-   Cursor (inherited from global index.css)
-───────────────────────────────────────── */
-.nf-page .cursor-dot,
-.nf-page .cursor-ring {
-  mix-blend-mode: difference;
-}

@@ -8,7 +8,6 @@ import Pricing from './components/pricing/Pricing';
 import SiteFooter from './components/Footer';
 import SocialFab from './components/SocialFab';
 import StudioLocation from './components/studio/StudioLocation';
-import CustomCursor from './components/CustomCursor';
 import { useImagePreloader } from './hooks/useImagePreloader';
 import { heavyImages, criticalImages } from './data/preloadAssets';
 
@@ -31,7 +30,6 @@ function App() {
 
   return (
     <>
-      <CustomCursor />
       <Hero />
       <EventsRibbon />
       <PosterSection />
