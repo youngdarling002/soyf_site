@@ -105,6 +105,7 @@
   will-change: width, height;
   z-index: 1;
   min-width: 0;
+  cursor: pointer;
   align-self: flex-end;       /* anchor to bottom so growth goes upward */
 }
 .ribbon-item img {

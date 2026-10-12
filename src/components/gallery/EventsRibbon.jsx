@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import '../../styles/poster.css'
+import Lightbox from '../Lightbox'
 
 // image 172 и image 174 — в самом начале, как просил пользователь.
 const RIOT_IMAGES = Array.from({ length: 13 }, (_, i) => `/img/events/riot-${String(i + 1).padStart(2, '0')}.webp`)
@@ -14,6 +15,9 @@ function baseSize(naturalW, naturalH) {
 
 function RibbonRow({ id, title, images }) {
   const count = images.length
+  // Ribbon shows small copies; the viewer opens the large ones from /img/events/full/.
+  const photos = images.map((src) => ({ thumb: src, full: src.replace('/img/events/', '/img/events/full/') }))
+  const [lightboxIndex, setLightboxIndex] = useState(-1)
   const sizesRef = useRef(Array(count).fill(null))
   const fitScaleRef = useRef(1)           // scale that makes all items fit the track
   const [sizes, setSizes] = useState(() => Array(count).fill(null))
@@ -135,6 +139,11 @@ function RibbonRow({ id, title, images }) {
               }
               onMouseEnter={() => onEnter(i)}
               onMouseLeave={onLeave}
+              onClick={() => setLightboxIndex(i)}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setLightboxIndex(i) } }}
+              role="button"
+              tabIndex={0}
+              aria-label={`Open ${title} photo ${i + 1}`}
             >
               <img
                 src={src}
@@ -149,6 +158,14 @@ function RibbonRow({ id, title, images }) {
           ))}
         </div>
       </section>
+      <Lightbox
+        images={photos}
+        selectedIndex={lightboxIndex}
+        onClose={() => setLightboxIndex(-1)}
+        onPrev={() => setLightboxIndex((i) => (i - 1 + photos.length) % photos.length)}
+        onNext={() => setLightboxIndex((i) => (i + 1) % photos.length)}
+        setIndex={setLightboxIndex}
+      />
     </div>
   )
 }
