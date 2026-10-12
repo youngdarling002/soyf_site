@@ -9,7 +9,7 @@ const groups = [
       ['Studio Rental with Engineer', '€15/hour'],
       ['Studio Rental', '€10/hour'],
       ['Mobile Recording', '€20/hour'],
-      ['Mixing & Mastering', 'from €25'],
+      ['Mixing & Mastering', 'from €30'],
       ['Custom Instrumental', 'from €30'],
       ['Full Album Recording', 'price negotiable'],
     ],
