@@ -55,7 +55,7 @@ const Countdown = () => {
 
 export default function PosterSection() {
   return (
-    <section id="events" className="events-section" aria-label="Events">
+    <section className="events-section" aria-label="Events">
       <div className="events-container">
         
 

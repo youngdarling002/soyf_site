@@ -12,7 +12,7 @@ function baseSize(naturalW, naturalH) {
   return { w: Math.max(60, Math.round(h * r)), h }
 }
 
-function RibbonRow({ title, images }) {
+function RibbonRow({ id, title, images }) {
   const count = images.length
   const sizesRef = useRef(Array(count).fill(null))
   const fitScaleRef = useRef(1)           // scale that makes all items fit the track
@@ -120,7 +120,7 @@ function RibbonRow({ title, images }) {
   }, [])
 
   return (
-    <div className="ribbon-section">
+    <div className="ribbon-section" id={id}>
       <div className="ribbon-title">{title}</div>
       <section aria-label={`${title} photos`} className="events-ribbon">
         <div className="ribbon-track" ref={trackRef}>
@@ -156,7 +156,7 @@ function RibbonRow({ title, images }) {
 export default function EventsRibbon() {
   return (
     <div className="ribbon-wrapper">
-      <RibbonRow title="RIOT SOUND EVENT" images={RIOT_IMAGES} />
+      <RibbonRow id="events" title="RIOT SOUND EVENT" images={RIOT_IMAGES} />
       <RibbonRow title="DEE BRIGHT ACOUSTIC" images={DEE_IMAGES} />
     </div>
   )
